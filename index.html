@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="codepen-title">
+
+    </div>
+    
+    <div class="secret secret1">
+Hey Princess,
+
+Just a little reminder: you hold a special place in my heart. Your presence brightens my days in ways you may not even realize. Please remember to take care of yourself alway, Your well-being is my priority🩷
+    </div>
+    
+    <div class="secret secret2" id="scrollable_secret">
+Hey Princess,
+
+Just a little reminder: you hold a special place in my heart. Your presence brightens my days in ways you may not even realize. Please remember to take care of yourself alway, Your well-being is my priority🩷
+    </div>
+    
+    <div class="content-placeholder"></div>
+    <style>
+
+
+body {
+	background-color: black;
+	color: #fe3a8c;
+	font-family: 'Cutive Mono', cursive;
+	font-size: 2rem;
+	
+	.secret {
+		line-height: 1.5;
+		text-align: center;
+
+		
+		&:nth-child(2) {
+			position: fixed;
+			z-index: -1;
+		}
+		
+		&:nth-child(3){
+			position: absolute;
+			margin: 200px 0;
+		}
+		
+	}
+}
+
+.hidden {
+	color: transparent;
+}
+
+.content-placeholder {
+	min-height: 500vh;
+}
+
+.codepen-title {
+	font-family: 'Bangers', cursive;
+	font-size: 4rem;
+	text-align: center;
+	padding: 40px 0;
+	margin-bottom: 25px;
+	color: #e6c9fc;
+}
+
+
+    </style>
+    <script>
+        
+var secret1 = document.querySelector('.secret1').innerHTML;
+
+var secret1split = secret1.split("");
+for (var i = 0; i < secret1split.length; i++) {
+	if(i%2==0){
+	secret1split[i] = '<span class="hidden">' + secret1split[i] + '</span>';
+	}
+}
+
+
+var secretjoined = secret1split.join('');
+
+
+document.querySelector('.secret1').innerHTML = secretjoined;
+
+var secret2 = document.querySelector('.secret2').innerHTML;
+var secret2split = secret2.split("");
+
+for (var i = 0; i < secret2split.length; i++) {
+	if(i%2!=0){
+	secret2split[i] = '<span class="hidden">' + secret2split[i] + '</span>';
+	}
+}
+
+var secret2joined = secret2split.join('');
+document.querySelector('.secret2').innerHTML = secret2joined;
+
+    </script>
+</body>
+</html>
